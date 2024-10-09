@@ -5,7 +5,7 @@ public class FightArena {
             boolean isStopBattle = false;
             int step = 1;
             while (!isStopBattle) {
-                if(step%2==0) isStopBattle=nextHit(monster,hero,winLost);
+                if(step++%2==0) isStopBattle=nextHit(monster,hero,winLost);
                 else isStopBattle=nextHit(hero,monster,winLost);
                 try{
                     Thread.sleep(1000);
@@ -13,13 +13,13 @@ public class FightArena {
                     e.printStackTrace();
                 }
             }
-
         };
         Thread thread=new Thread(runnable);
         thread.start();
     }
     public boolean nextHit(Gamer attack, Gamer guard,GamesArea.WinLost winLost){
         int hit=attack.attack();
+
         int guardHp=guard.getHp()-hit;
         if(hit>0){
             System.out.println(String.format("%s наносит %d единиц урона...",attack.getName(),hit ));
@@ -34,6 +34,7 @@ public class FightArena {
                     System.out.println(String.format("Призванный герой побеждает!!! Забирайте свою награду!!! Залото: %d , Опыт: %d",guard.getGold(), guard.getXp()));
                     attack.setXp(attack.getXp()+guard.getXp());
                     attack.setGold((attack.getGold())+guard.getGold());
+                    attack.levelUp();
                     winLost.battleWin();
                 }
                 return true;

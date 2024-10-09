@@ -1,11 +1,13 @@
-public class Hero extends Gamer implements GamerTrade{
+public class Hero extends Gamer{
     private int score;
 
 
     public Hero(String name,int hp,int agility,int damage,int xp,int gold) {
 
         super(name, hp,agility,damage,xp,gold);
+
     }
+
 //    public void trade(int gold){
 //        int xpplus=0;
 //        int experience=0; //опыт

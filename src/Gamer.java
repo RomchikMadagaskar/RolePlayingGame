@@ -5,9 +5,11 @@ public abstract class Gamer implements GamerBattle{
     private int agility;    //ловкость dexterity
     private int hp =100; //здоровье
     private int damage; //сила strength
-    //private int goodHit=0;
     private int xp; //опыт
     private int gold; //золото
+    int level=1;
+    int startXp=100;
+    int critDown=0;
 
     public Gamer(String name, int hp, int agility, int damage, int xp, int gold) {
         this.name=name;
@@ -18,39 +20,21 @@ public abstract class Gamer implements GamerBattle{
         this.gold=gold;
     }
     @Override
-    public int attack(){
-        if(agility*3>(int)(Math.random()*100 return damage;
-        else return 0;
-
-
-//        if(setDamage()!=0){        //проверка на промах
-//            if(goodHit==5){    //проверка на критический удар
-//                goodHit=0;
-//                return damage*2;
-//            }
-//            return damage;
-//        }else {
-//            return 0;
-//        }
-    }
-
-    public int setDamage() {
-        int nextBlow=0;
-        Random rnd=new Random();
-        if(rnd.nextInt(100)<=agility*3) nextBlow=damage;
-        else{
-            System.out.println("ПРОМАХ!!!!");
-            goodHit=0;
+    public int attack() {
+        if (agility * 3 > (int) (Math.random() * 100)) {
+            if (critDown > 4) {
+                critDown = 0;
+                System.out.println("КРИТИЧЕСКИЙ УДАР!!!x2");
+                return damage * 2;
+            } else {
+                critDown++;
+                return damage;
+            }
+        } else {
+            critDown = 0;
+            return 0;
         }
-        if(goodHit>=5){    //проверка на критический удар
-            System.out.println("КРИТИЧЕСКИЙ УДАР Х2!!!");
-            goodHit=0;
-            nextBlow=damage*2;
-        }else goodHit++;
-
-        return nextBlow;
     }
-
     public String getName() {
         return name;
     }
@@ -90,4 +74,17 @@ public abstract class Gamer implements GamerBattle{
     public void setGold(int gold){
         this.gold=gold;
     }
+    public void levelUp(){
+        if(startXp*level<xp){
+            level++;
+            agility+=+10;
+            hp+=10;
+            damage+=10;
+            gold+=100;
+        }
+    }
+    public int getLevel(){
+        return level;
+    }
+
 }

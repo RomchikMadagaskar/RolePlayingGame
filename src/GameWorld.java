@@ -33,27 +33,27 @@ public class GameWorld {
         }
         return n;
     }
-    public void fight(Hero hero,Gamer monster){
-        Random rnd=new Random();
-        //Gamer monster;
-        if(rnd.nextInt(100)>50) monster=new Goblin();
-        else monster=new Skeleton();
-        //fight
-
-        do{
-
-            if(hero.getHp()>0){
-                monster.setHp(monster.getHp()-hero.attack());
-            }else break;
-
-            if(monster.getHp()>0){
-                hero.setHp(hero.getHp()-monster.attack());
-            }else break;
-
-        }while(hero.getHp()<=0||monster.getHp()<=0);
-
-        if(hero.getHp()>0){
-        //    hero.fightWin(monster.getAgility(), monster.getDamage());
-        }
-    }
+//    public void fight(Hero hero,Gamer monster){
+//        Random rnd=new Random();
+//        //Gamer monster;
+//        if(rnd.nextInt(100)>50) monster=new Goblin();
+//        else monster=new Skeleton();
+//        //fight
+//
+//        do{
+//
+//            if(hero.getHp()>0){
+//                monster.setHp(monster.getHp()-hero.attack());
+//            }else break;
+//
+//            if(monster.getHp()>0){
+//                hero.setHp(hero.getHp()-monster.attack());
+//            }else break;
+//
+//        }while(hero.getHp()<=0||monster.getHp()<=0);
+//
+//        if(hero.getHp()>0){
+//        //    hero.fightWin(monster.getAgility(), monster.getDamage());
+//        }
+//    }
 }
