@@ -1,31 +1,37 @@
 import java.util.Random;
 
-public abstract class Gamer {
+public abstract class Gamer implements GamerBattle{
     private String name;
-    private int agility;    //ловкость
-    private int xp=100; //здоровье
-    private int damage; //сила
-    private int goodHit=0;
-    private int experience; //опыт
+    private int agility;    //ловкость dexterity
+    private int hp =100; //здоровье
+    private int damage; //сила strength
+    //private int goodHit=0;
+    private int xp; //опыт
     private int gold; //золото
 
-    public Gamer(String name, int agility, int damage, int experience, int gold) {
+    public Gamer(String name, int hp, int agility, int damage, int xp, int gold) {
         this.name=name;
+        this.hp=hp;
         this.agility = agility;
         this.damage = damage;
-        this.experience=experience;
+        this.xp=xp;
         this.gold=gold;
     }
+    @Override
     public int attack(){
-        if(setDamage()!=0){        //проверка на промах
-            if(goodHit==5){    //проверка на критический удар
-                goodHit=0;
-                return damage*2;
-            }
-            return damage;
-        }else {
-            return 0;
-        }
+        if(agility*3>(int)(Math.random()*100 return damage;
+        else return 0;
+
+
+//        if(setDamage()!=0){        //проверка на промах
+//            if(goodHit==5){    //проверка на критический удар
+//                goodHit=0;
+//                return damage*2;
+//            }
+//            return damage;
+//        }else {
+//            return 0;
+//        }
     }
 
     public int setDamage() {
@@ -53,12 +59,12 @@ public abstract class Gamer {
         this.name = name;
     }
 
-    public void setXp(int xp) {
-        this.xp = xp;
+    public void setHp(int hp) {
+        this.hp = hp;
     }
 
-    public int getXp() {
-        return xp;
+    public int getHp() {
+        return hp;
     }
 
     public int getAgility() {
@@ -71,5 +77,17 @@ public abstract class Gamer {
 
     public void setDamage(int damage) {
         this.damage = damage;
+    }
+    public int getXp() {
+        return xp;
+    }
+    public int getGold(){
+        return gold;
+    }
+    public void setXp(int xp){
+        this.xp=xp;
+    }
+    public void setGold(int gold){
+        this.gold=gold;
     }
 }

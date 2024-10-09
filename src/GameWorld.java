@@ -11,7 +11,7 @@ public class GameWorld {
             String string=getScanner();
             String[] stringArray=string.split(",");
             try{
-                hero=new Hero(stringArray[0],Integer.parseInt(stringArray[1]),Integer.parseInt(stringArray[2]));
+               // hero=new Hero(stringArray[0],Integer.parseInt(stringArray[1]),Integer.parseInt(stringArray[2]));
             }
             catch(NumberFormatException e){
                 System.out.println("Ошибка задания параметров.Введите корректные значения");
@@ -35,25 +35,25 @@ public class GameWorld {
     }
     public void fight(Hero hero,Gamer monster){
         Random rnd=new Random();
-        Gamer monster;
+        //Gamer monster;
         if(rnd.nextInt(100)>50) monster=new Goblin();
         else monster=new Skeleton();
         //fight
 
         do{
 
-            if(hero.getXp()>0){
-                monster.setXp(monster.getXp()-hero.attack());
+            if(hero.getHp()>0){
+                monster.setHp(monster.getHp()-hero.attack());
             }else break;
 
-            if(monster.getXp()>0){
-                hero.setXp(hero.getXp()-monster.attack());
+            if(monster.getHp()>0){
+                hero.setHp(hero.getHp()-monster.attack());
             }else break;
 
-        }while(hero.getXp()<=0||monster.getXp()<=0);
+        }while(hero.getHp()<=0||monster.getHp()<=0);
 
-        if(hero.getXp()>0){
-            hero.fightWin(monster.getAgility(), monster.getDamage());
+        if(hero.getHp()>0){
+        //    hero.fightWin(monster.getAgility(), monster.getDamage());
         }
     }
 }

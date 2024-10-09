@@ -1,4 +1,4 @@
 public interface GamerTrade {
-    public void trade(int gold);
+    public String sell(Trader.Goods goods);
 
 }

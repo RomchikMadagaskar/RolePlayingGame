@@ -2,13 +2,13 @@ import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
 
-private static Scanner scanner;
-private static Hero hero;
+//private static Scanner scanner;
+//private static Hero hero;
 
 
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+//    public static void main(String[] args) throws IOException {
 //        scanner =new Scanner(System.in);
 //        printMenu();
 //        ShowMenu gameworld=new ShowMenu();
@@ -78,10 +78,14 @@ public class Main {
 //            }
 //        }while(command!=2);
 
-    }
+//    }
 
 
 }
+
+
+
+
 
 //public void main() {
 //}

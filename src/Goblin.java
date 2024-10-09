@@ -1,14 +1,8 @@
 public class Goblin extends Gamer{
 
-    public Goblin(){
+    public Goblin(String name,int hp,int agility,int damage,int xp,int gold){
 
-        super(
-                "Goblin",
-                50,
-                50,
-                35,
-                35
-        );
+        super(name, hp,agility,damage,xp,gold);
     }
 
 }

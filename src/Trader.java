@@ -2,7 +2,14 @@ public class Trader implements GamerTrade{
     String name="Trader";
 
     @Override
-    public void trade(int gold) {
-
+    public String sell(Goods goods) {
+        String result="";
+        if(goods==Goods.POTION){
+            result="potion";
+        }
+        return result;
+    }
+    public enum Goods{
+        POTION;
     }
 }
