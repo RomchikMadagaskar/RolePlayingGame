@@ -1,14 +1,14 @@
 import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 public class GamesArea {
 
    private static BufferedReader br;
    private static Gamer player=null;
    private static FightArena fightArena=null;
+
+   private static Trader trader=null;
 
    public static void main(String[] args) {
         fightArena=new FightArena();
@@ -20,25 +20,44 @@ public class GamesArea {
        } catch (IOException e) {
            throw new RuntimeException(e);
        }
-
-
-
-        }
+   }
     private static void linkMenu(String str) throws IOException{
         if(player==null){
             player=new Hero(str,100,20,20,0,0);
+            System.out.println("В неравную битву вступает "+player.getName()+" !!!");
         }
-        System.out.println("В неравную битву вступает "+player.getName()+" !!!");
-        menu();
+        if(trader==null){
+            trader=new Trader();
+        }
         switch (str){
             case "1":{
-                System.out.println("Торговец еще не приехал");
+                System.out.println(trader.sell(Trader.Goods.POTION)+"м");
+                System.out.println(trader.sell(Trader.Goods.POTION2)+"б");
                 linkMenu(br.readLine());
-
             }
             break;
             case "2":{
                 fightStart();
+            }
+            break;
+            case "м":{
+                if (player.getGold() > 30) {
+                    player.setGold(player.getGold() - 30);
+                    player.setHp(player.getHp() + 30);
+                    System.out.println("Восстановлено 30 единиц hp");
+                } else {
+                    System.out.println("Недостаточно золота!!!");
+                }
+            }
+            break;
+            case "б":{
+                if (player.getGold() > 50) {
+                    player.setGold(player.getGold() - 50);
+                    player.setHp(player.getHp() + 50);
+                    System.out.println("Восстановлено 50 единиц hp");
+                } else {
+                    System.out.println("Недостаточно золота!!!");
+                }
             }
             break;
             case "3":{
@@ -55,6 +74,7 @@ public class GamesArea {
                 linkMenu(br.readLine());
             }
         }
+        menu();
         linkMenu(br.readLine());
     }
     private static void menu(){
@@ -77,7 +97,6 @@ public class GamesArea {
                 } catch (IOException e){
                     e.printStackTrace();
                 }
-
             }
 
             @Override
@@ -106,7 +125,6 @@ public class GamesArea {
             void battleWin();
             void battleLost();
     }
-
 }
 
 
