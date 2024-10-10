@@ -1,6 +1,5 @@
 public class FightArena {
     public void fight(Gamer hero, Gamer monster,GamesArea.WinLost winLost){
-        //TODO
         Runnable runnable=()->{
             boolean isStopBattle = false;
             int step = 1;
