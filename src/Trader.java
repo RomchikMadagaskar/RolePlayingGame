@@ -1,5 +1,4 @@
 public class Trader implements GamerTrade{
-    String name="Trader";
 
     @Override
     public String sell(Goods goods) {
@@ -13,6 +12,6 @@ public class Trader implements GamerTrade{
     }
     public enum Goods{
         POTION,
-        POTION2;
+        POTION2
     }
 }

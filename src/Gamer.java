@@ -37,10 +37,6 @@ public abstract class Gamer implements GamerBattle{
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void setHp(int hp) {
         this.hp = hp;
     }
@@ -49,17 +45,6 @@ public abstract class Gamer implements GamerBattle{
         return hp;
     }
 
-    public int getAgility() {
-        return agility;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
     public int getXp() {
         return xp;
     }
