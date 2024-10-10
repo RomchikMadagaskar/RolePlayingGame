@@ -1,9 +1,7 @@
-import java.util.Random;
-
 public abstract class Gamer implements GamerBattle{
     private String name;
     private int agility;    //ловкость dexterity
-    private int hp =100; //здоровье
+    private int hp ; //здоровье
     private int damage; //сила strength
     private int xp; //опыт
     private int gold; //золото
@@ -77,7 +75,7 @@ public abstract class Gamer implements GamerBattle{
     public void levelUp(){
         if(startXp*level<xp){
             level++;
-            agility+=+10;
+            agility+=10;
             hp+=10;
             damage+=10;
             gold+=100;

@@ -31,8 +31,9 @@ public class GamesArea {
         }
         switch (str){
             case "1":{
-                System.out.println(trader.sell(Trader.Goods.POTION)+"м");
-                System.out.println(trader.sell(Trader.Goods.POTION2)+"б");
+                System.out.println(trader.sell(Trader.Goods.POTION)+"(м)");
+                System.out.println(trader.sell(Trader.Goods.POTION2)+"(б)");
+                System.out.println("м/б");
                 linkMenu(br.readLine());
             }
             break;
@@ -74,14 +75,14 @@ public class GamesArea {
                 linkMenu(br.readLine());
             }
         }
-        menu();
+        if(!str.equals("2")) menu();
         linkMenu(br.readLine());
     }
     private static void menu(){
         System.out.println( """
             Куды Вы хотите пойти:
             1. К торговцу
-            2. В темный лесы
+            2. В темный лес
             3. На выход
             """);
     }
@@ -115,10 +116,9 @@ public class GamesArea {
            return new Skeleton("Скелет", 25, 20, 20, 50, 10);
         }
        else if (rnd==50) {
-           System.out.println("Здесь будет дракон, а пока скелет");
-           return new Skeleton("Скелет",25,20,20,50,10);
+           return new LameDragon("Дракон уже не тот",200,30,50,50,100);
        }
-       return null;
+        return null;
     }
 
     interface WinLost{
